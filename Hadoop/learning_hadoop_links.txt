@@ -1,0 +1,23 @@
+
+Udacity course (free)
+Intro to Hadoop and MapReduce - How to Process Big Data
+https://www.udacity.com/course/ud617
+
+Cloudera Training Online Resources (free)
+http://cloudera.com/content/cloudera/en/training/library.html
+
+Cloudera Quickstart VMs and Cloudera Live (hands on sandbox)
+http://www.cloudera.com/content/cloudera/en/products-and-services/cloudera-live.html
+
+Hortonworks Gettings started (sandbox, tutorials, etc)
+http://hortonworks.com/get-started/
+
+MapR (check training and resources links)
+https://www.mapr.com/
+
+Coursera also has many related courses:
+Introduction to Data Science (Bill Howe, Univ of Washington)
+Data Science 101 (Andrew Ng)
+The Data scientist's Toolbox (John Hopkins)
+John Hopkins Specialization in Data Scient series.
+ 
