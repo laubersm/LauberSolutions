@@ -1,0 +1,41 @@
+http://selinuxproject.org/
+https://www.nsa.gov/research/selinux/
+
+http://oss.tresys.com/
+https://github.com/TresysTechnology/refpolicy/wiki
+https://github.com/TresysTechnology/setools3/wiki
+
+http://danwalsh.livejournal.com/
+http://stopdisablingselinux.com
+https://github.com/mairin/selinux-coloring-book
+http://www.flakjacketinc.com/selinux-references.html
+
+***Specific articles referencing SELinux and a CVE:
+
+CVE-2015-4495  Aug 2015 (why SElinux does NOT contain firefox)
+http://danwalsh.livejournal.com/72697.html
+
+Venom 
+CVE-2015-3456 
+https://securityblog.redhat.com/2015/05/13/venom-dont-get-bitten/
+See mitigation at the bottom (svirt might help)
+http://danwalsh.livejournal.com/71489.html
+
+Shellshock
+CVE-2014-6271 and CVE-2014-7169 and CVE-2014-7186 and CVE-2014-7187
+https://securityblog.redhat.com/2014/09/26/frequently-asked-questions-about-the-
+shellshock-bash-flaws/
+http://danwalsh.livejournal.com/71122.html (shellshock)
+http://cybermatters.info/2014/10/09/shellshock-selinux/ (interview with Dan)
+https://blog.hqcodeshop.fi/archives/243-SElinux-and-Shellshock.html
+
+CVE-2011-1751  2011
+http://danwalsh.livejournal.com/45194.html
+
+
+***Older posts (still relevant)
+
+Whats new in rhel7 html slideshow
+https://dwalsh.fedorapeople.org/SELinuxStatus/#/
+
+
