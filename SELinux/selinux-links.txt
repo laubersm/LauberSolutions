@@ -1,4 +1,6 @@
 http://selinuxproject.org/
+http://selinuxproject.org/page/NewUsers
+
 https://www.nsa.gov/research/selinux/
 
 http://oss.tresys.com/
@@ -9,6 +11,12 @@ http://danwalsh.livejournal.com/
 http://stopdisablingselinux.com
 https://github.com/mairin/selinux-coloring-book
 http://www.flakjacketinc.com/selinux-references.html
+
+Fedora Docs - SELinux Users and Administrators Guide
+https://docs.fedoraproject.org/en-US/Fedora/22/html-single/SELinux_Users_and_Administrators_Guide/index.html
+
+SElinux on Android
+https://source.android.com/devices/tech/security/selinux/
 
 ***Specific articles referencing SELinux and a CVE:
 
