@@ -1,0 +1,108 @@
+Working with Vim's Visual Mode
+==============================
+Susan Lauber <sml@laubersolutions.com>
+v1.0, 2019-01
+
+[abstract]
+Inspired by my students
+-----------------------
+Ansible playbook files are text files in a YAML format. People who work with them regularly have their favorite editors and often plugin extensions to make the formatting easier.
+When I teach Ansible with the default editor available in most Linux distributions, I use the visual mode of `vim` a lot. It helps me to highlight on the screen what I am about to edit as well as complete the text manipulation task.
+
+Visual Mode in `vim`
+------------------
+When editing text with `vim`, the visual mode can be extremely useful for identifying chunks of text to be manipulated.
+
+The three versions of the visual mode in `vim` are character, line, and block.
+
+- Enter character visual mode with a lower case v
+- Enter line visual mode with a capitol v using SHIFT-v, 
+- Enter block visual mode using CONTROL-v
+
+
+Visual Character Mode
+---------------------
+
+The character mode is useful to highlight a sentence in a paragraph or a phrase in a sentence. The visually identified text can than be deleted, copied, changed, or modified with any other `vim` editing command.
+
+Move a sentence
+~~~~~~~~~~~~~~~~
+To move a sentence from one paragraph to another, start by opening the file and moving the cursor to the first character in the sentence you want to move.
+
+- Press the v key to enter character visual mode. The word VISUAL will appear at the bottom of the screen.
+- Use the arrow keys to highlight the desired text.
+You can actually use any navigation commands such as w to highlight to the end of the word or $ to include the rest of the line.
+
+image::vim-visual-char1-2019-01-28.png[Highlighted Text image]
+
+- Once the text is highlighted, press the d key to delete the text. 
+- If you deleted too much or not enough text, press u to undo and start again. 
+- Once you have deleted the text, move your cursor to the desired location and press p to paste the text in the new location.
+
+
+Change a phrase
+~~~~~~~~~~~~~~~
+Similarly, you can highlight a chunk of text that you want to replace.
+
+- Place the cursor at the first character. 
+- Press v to enter visual mode. 
+- Use navigation commands such as the arrow keys to highlight the phrase.
+
+image::vim-visual-char2-2019-01-28.png[Visual to change image]
+
+- Press c to change the highlighted text.
+- Your highlighted text will disappear and you will be left in insert mode to add new text.
+- When you are finished typing the new text, press ESC to return to command mode and save your work.
+
+image::vim-visual-char3-2019-01-28.png[Changed Text image]
+
+Visual Line Mode
+----------------
+
+When working with Ansible playbooks, the order of the tasks can matter. Use the visual line mode to help move a tasks to a different location in the playbook.
+
+Manipulate multiple lines of text
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Place you cursor anywhere on the first or last line of the text to be manipulated. 
+- Press the SHIFT and V keys (capitol V) to enter line based visual mode. The words VISUAL LINE will appear at the bottom of the screen.
+
+- Use navigation commands such as the up and down arrow keys to highlight multiple lines of text.
+
+image::vim-visual-line1-2019-01-28.png[Visual Line image]
+
+- Once the desired text is highlighted use commands to manipulate the text. In our case, press d to delete, re-position the cursor, and press p to paste the text in the new location.
+
+Yank can be used instead of delete if you want to copy the task.
+
+Indent a set of lines
+~~~~~~~~~~~~~~~~~~~~~
+
+When working with Ansible playbooks or any YAML files, indentation matters. A highlighted block can be shifted in or out with the > and < keys.
+
+image::vim-visual-line2-2019-01-28.png[Visual Line image]
+
+- Press > to increase the indentation of all the lines.
+- Press < to decrease the indentation of all the lines.
+
+Try any other `vim` commands to be applied to just the highlighted text!
+
+
+Visual block mode
+-----------------
+ 
+The visual block mode is useful for manipulation of specific tabular data files but it can also be extremely helpful as a tool to verify indentation of an Ansible playbook.
+
+Verify tasks lists are at the same indentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Place your cursor on the first character of list item. 
+- Press the CONTROL and V keys to enter block based visual mode. The words VISUAL BLOCK will appear at the bottom of the screen.
+- Use the arrow keys to up or down to highlight that single character combination. You can verify that each tasks is indented the same amount.
+
+image::vim-visual-block1-2019-01-28.png[Visual Block image]
+
+- Use the arrows to expand the block right or left to check that other indentation is also correct.
+
+image::vim-visual-block2-2019-01-28.png[Visual Block multi image]
+
