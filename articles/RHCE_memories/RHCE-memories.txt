@@ -1,0 +1,82 @@
+Remembering my first RHCE exam
+==============================
+Susan Lauber <sml@laubersolutions.com>
+Jan 2019
+
+When, where, and why
+--------------------
+
+I learned about network operating systems working in a person computer (PC) helpcenter. After several years talking to customers and being an escalation point for other support engineers, I moved into the training department. 
+
+I was responsible for training the technicians using both in house written materials for our own hardware products and partner materials for most of the software. When I started working with Linux, I was already teaching official material for OS/2 Warp Server and SCO Unix in additional to some material for Microsoft, Banyan Systems, and Novell products.
+
+When IBM invested in Linux, my position in a training department and my Unix background made me a lead on the team facilitating a plan to get the PC Helpcenters around the world up to speed in supporting four Linux distributions. We needed to quickly ramp up on Red Hat, Caldera, SUSE, and TurboLinux. I became the point person for Train-the-Trainer sessions on all four distributions in addition to having the responsibility of getting the North America support center trained.
+
+The Red Hat office, with their brand new Training and Certification team, was located halfway between my office and my home so of course I started by attending their Red Hat Certified Engineer course. That was 20 years ago. To be precise, it was Mar 1-5, 1999.
+
+image::rhce-certificate-small.jpg[RHCE Certificate image]
+
+The course
+----------
+
+The course was similar to other technical training course which I had attended and taught. The RH300 RHCE Course was new and it was the only course offered at the time. In those years, the authors and the instructors were the same people. 
+
+It was a lot of information for a single week and it required a good foundation of prerequisite knowledge. Some things have not changed in 20 years!
+
+The exam
+--------
+I could not find the course or exam descriptions from 1999 but the Internet Archives Way Back Machine does show the spring of 2000 Prep Guide: 
+https://web.archive.org/web/20000407183013/http://www.redhat.com/services/training/training_examprep.html
+
+My memory is that most items did not change much in that first year.
+
+The format:
+~~~~~~~~~~~
+Like now, the the exam was on that Friday. It was mostly hands on but not entirely since the first iteration included a multiple choice section. It was three parts:
+
+- Installation Lab Exam - 2.5 hours 
+- Written Exam - 1 hour
+- Debug Lab Exam - 2.5 hours
+- PASS requires: avg of 80 or higher, with no single score lower than 50 pts.
+
+I think my class did the installation in the morning with debug in the afternoon. The written section was in between followed by a lunch break. 
+Soon after, the lab sections were swapped out in the daily schedule. I suspect it was quicker to grade the debug than the installation lab and systems needed to be reset for each section. 
+My class did not need a reset since we took the exam on zip drives. Yup, you heard that correctly, ZIP drives. They were removed, labeled, and graded later. The email with my score report is dated March 19th. Two weeks later!
+
+image::rhce-score-small.jpg[RHCE score email image]
+
+The objectives:
+~~~~~~~~~~~~~~~
+
+Objectives that are still seen today included:
+
+- Red Hat installation and network configuration
+- filesystem layouts and user management
+- boot issues and boot loader options
+- package management and automated installation
+- various network service configuration and security
+ 
+Of course at that time, it was network-scripts files, ext2, NIS, LILO, rpm, squid, tcp_wrappers, and ipchains instead of the nmcli, xfs, GRUB, yum, systemd, and firewalld.
+
+There were also some "get off my lawn" objectives:
+
+- We had to understand XFree86 configuration and get graphical login managers working
+- We used boot floppies for rescue. Yes, Floppies!
+- And we had to "be able to configure, build, and install the Linux kernel and modules from source". 
+
+The version:
+~~~~~~~~~~~~
+
+My exam in March 1999 was on Red Hat Linux 5.2. 
+
+- GNOME was technology preview and the kernel was 2.0.36.
+
+A month later Red Hat Linux 6.0 was released. 
+
+- The 2.2 kernel and glibc 2.1 were major new features and GNOME was the default GUI.
+
+I became a Red Hat Certified Instructor through a partner program and immediately started sharing the wonders of Open Source with a whole new set of users. I added Red Hat Certified Examiner credentials a year later. 
+
+The first class I taught using Red Hat Training materials was written for RHL 6.0 and delivered in Scotland. That, though, is a story for another article.
+
+
