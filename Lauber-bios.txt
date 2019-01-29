@@ -1,0 +1,33 @@
+Social Media Bios:
+
+Twitter:
+Open source advocate. Linux geek. RHCA. CISSP. Technical trainer. Consultant. Tar Heel. WBB fan.
+
+opensource.com:
+Open source advocate. Linux geek. More Ops than Dev but we all get along. Also works with Apache Hadoop and enjoys security topics. RHCA. CISSP. Technical trainer. Speaker. Writer. Consultant. President and owner of Lauber System Solutions. Occationally blogs at http://travelingtrainer.laubersolutions.com/
+
+
+General Business Bio:
+
+Susan Lauber has over 25 years experience in Information Systems from data analyst to network operating systems support to curriculum design. 
+She currently focuses on training and consulting in just about anything OpenSource and holds all positions in her own company, Lauber System Solutions, Inc. 
+
+Susan has a Masters in Information Science from the University of North Carolina, Chapel Hill and is a Certified Information Systems Security Professional (CISSP) and a Certified Technical Trainer (CTT). 
+She is an independent instructor for both Cloudera, Inc. and Red Hat, Inc. holding an alphabet of certifications in those products including CCAH, RHCA, RHCSS, RHCE, and RHCX.
+
+She is also a Fedora Ambassador and contributes to OpenSource projects mostly by way of documentation and QA processes. 
+
+RHCI/RHCX Bio:
+Susan Lauber has been a Red Hat Instructor since 1999 and a Certified Examiner since 2000. She delivers certification training as a contractor of Red Hat and a variety of Red Hat Delivery Partners. 
+She teaches open enrollment classes, onsite customer classes, and Red Hat internal employee classes. 
+Susan has also recorded several of the Red Hat Training Video Courses available with the Red Hat Learning Subscription. 
+Susan teaches a variety of Platform and DevOps infrastructor courses. Her favorite topics are security and automation, aka SELinux and Ansible.
+
+Susan is a Red Hat Certified Architect in Infrastructure Level XIII
+Her certification can be verified at:
+https://www.redhat.com/rhtapps/services/verify/?certId=100-000-181
+
+When not working with Red Hat materials, she works with Apache Hadoop and Cloudera security and administration. She is also a Fedora Ambassador and contributes to OpenSource projects mostly by way of documentation and QA processes. 
+
+
+
