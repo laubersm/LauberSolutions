@@ -4,7 +4,7 @@ Twitter:
 Open source advocate. Linux geek. RHCA. CISSP. Technical trainer. Consultant. Tar Heel. WBB fan.
 
 opensource.com:
-Open source advocate. Linux geek. More Ops than Dev but we all get along. Also works with Apache Hadoop and enjoys security topics. RHCA. CISSP. Technical trainer. Speaker. Writer. Consultant. President and owner of Lauber System Solutions. Occationally blogs at http://travelingtrainer.laubersolutions.com/
+Open source advocate. Linux geek. More Ops than Dev but we all get along. Also works with Apache Hadoop and enjoys security topics. RHCA. CISSP. Technical trainer. Speaker. Writer. Consultant. President and owner of Lauber System Solutions. Occasionally blogs at http://travelingtrainer.laubersolutions.com/
 
 
 General Business Bio:
@@ -21,7 +21,7 @@ RHCI/RHCX Bio:
 Susan Lauber has been a Red Hat Instructor since 1999 and a Certified Examiner since 2000. She delivers certification training as a contractor of Red Hat and a variety of Red Hat Delivery Partners. 
 She teaches open enrollment classes, onsite customer classes, and Red Hat internal employee classes. 
 Susan has also recorded several of the Red Hat Training Video Courses available with the Red Hat Learning Subscription. 
-Susan teaches a variety of Platform and DevOps infrastructor courses. Her favorite topics are security and automation, aka SELinux and Ansible.
+Susan teaches a variety of Platform and DevOps infrastructure courses. Her favorite topics are security and automation, aka SELinux and Ansible.
 
 Susan is a Red Hat Certified Architect in Infrastructure Level XIII
 Her certification can be verified at:
