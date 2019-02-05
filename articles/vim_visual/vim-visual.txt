@@ -91,14 +91,16 @@ Try any other `vim` commands to be applied to just the highlighted text!
 Visual block mode
 -----------------
  
-The visual block mode is useful for manipulation of specific tabular data files but it can also be extremely helpful as a tool to verify indentation of an Ansible playbook.
+The visual block mode is useful for manipulation of specific tabular data files but it can also be extremely helpful as a tool to verify indentation of an Ansible playbook. 
+
+Tasks are a list of items and in YAML each list item starts with a dash followed by a space. The dashes must line up in the same column to be at the same indentation level. This can be difficult to see with just the human eye. Indentation of other lines within the task is also important.
 
 Verify tasks lists are at the same indentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Place your cursor on the first character of list item. 
 - Press the `CONTROL` and `v` keys to enter block based visual mode. The words VISUAL BLOCK will appear at the bottom of the screen.
-- Use the arrow keys to up or down to highlight that single character combination. You can verify that each tasks is indented the same amount.
+- Use the arrow keys to up or down to highlight that single character column. You can verify that each tasks is indented the same amount.
 
 image::vim-visual-block1-2019-01-28.png[Visual Block highlighting one column screenshot]
 
@@ -106,4 +108,5 @@ image::vim-visual-block1-2019-01-28.png[Visual Block highlighting one column scr
 
 image::vim-visual-block2-2019-01-28.png[Visual Block multi column screenshot]
 
+Even though I am comfortable with other Vim editing shortcuts, I still like to use visual mode to sort out what text I want to manipulate. When I demo other concepts during a presentation, my students see a tool to highlight text and hit delete in this "new to them" text only editor.
 
