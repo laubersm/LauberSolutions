@@ -4,3 +4,6 @@ Jan 2019
 
 I also used this article to learn a little bit about asciidoc.
 
+PUBLISHED LINKS:
+https://opensource.com/article/19/2/getting-started-vim-visual-mode
+
