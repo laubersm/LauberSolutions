@@ -3,6 +3,10 @@ This is the draft article for either the Red Hat Services Blog or an opensource.
 License: Creative Commons BY-SA 4.0
 Jan 2019
 
+Published Mar 5, 2019 at Traveling Training Blog
+https://travelingtrainer.laubersolutions.com/2019/03/20-years-ago-remembering-my-first-rhce.html
+
+
 The html page is generated from the txt file with
 asciidoc -a data-uri -a icons -a max-width=55em RHCE-memories.txt 
 
