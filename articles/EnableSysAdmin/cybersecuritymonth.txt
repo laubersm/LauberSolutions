@@ -1,0 +1,44 @@
+October is cybersecurity awareness month. 
+This is an initiative which the US Department of Homeland Security calls "a collaborative effort between government and industry to raise awareness about the importance of cybersecurity and to ensure that all Americans have the resources they need to be safer and more secure online."
+
+A number of other organizations provide additional awareness training resources in addition to references back to the NICCS [1] site. This year's theme is "Own IT, Secure IT, Protect IT" and includes topics such as online privacy, E-commerce, social media, and the digital home.
+
+At first glance all the topics appear to be focused on helping individuals be more secure in their personal activities. What does this have to do with an industry system administrator? There is nothing about using the latest advances in identity management, SELinux, auditing, or automation. 
+Security for the system administrator is about risk management. Some of the benefits may not appear as a straight line reward for investment but a better educated user always helps to secure systems, networks, and other resources. This in turn reduces the risk of an event compromising the systems we administer.
+
+Here are some examples:
+
+* Your company has consultants and sales associates that travel frequently and are issued corporate phone and laptops. 
+You may already require these devices to be encrypted and passphrase protected. 
+Are you also providing screen privacy protector sheets for all company laptops? 
+Are you also replacing lost or damaged ones no questions asked? 
+
+* Your company has both part time and full time remote workers.
+What do you require and what assistance do you provide for employee home networks to be secured?
+Are you providing suggestions, partial costs, and configuration support for a home router that can isolate the home office from the family gaming systems?
+
+* You have invested in a single sign on system so your users only need one combination of authentication internally but many also work with upstream project sites, vendor product sites, or other systems that cannot be managed in this central identity management system.
+Have you provided a suggestion for a password manager program?
+Have you provided documentation and assistance for the setup and support of these programs?
+Have you shared how to use these password managers to also secure those "security questions" that many sites require "to ease password resets"?
+Have you considered a password management program that the user can also use with their own personal machines and systems? [2]
+
+A user that manages their banking passwords well will also manage their corporate passwords well.
+
+* Social media is used in many ways by your company and your employees.
+Are the accounts representing the company properly secured? 
+When were the privacy settings last reviewed?
+Do your users understand how their personal accounts do or do not reflect the on the business?
+Do you and the users know anything about the role that bots are playing in messaging?
+
+Security is a never ending cycle of activity. Attack vectors evolve and new technology appears all the time. Policies need to be regularly reviewed and updated and not just during an awareness month - though that is as good a time to start as any! Are the requirements and the guidelines for your users easy to find? Are the accurate and current? Are they clear and easy to understand by the users and not just by the staff? 
+
+If you are responsible for awareness training within your organization, check out the other topics and tools provided at the NICCS site. They even have a Trivia Game.
+
+[1] note to editors: include the link somewhere. You might want it sooner than here though. Or sooner and also here.
+link URL: https://niccs.us-cert.gov/national-cybersecurity-awareness-month-2019
+
+[2] note to editors: may want to suggest an article here. Jason's https://opensource.com/article/16/12/password-managers article is almost 2 years old, not sure if RH or affiliate has a newer one. Fosspost has a recent one but I have not reviewed it closely: https://fosspost.org/lists/open-source-password-managers same with an popular ubuntu site: http://www.linuxandubuntu.com/home/5-best-linux-password-managers]
+
+Some other "what are we reading" suggestions include anything in https://opensource.com/tags/security
+

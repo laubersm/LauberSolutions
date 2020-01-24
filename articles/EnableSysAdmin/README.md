@@ -1,5 +1,5 @@
 # Enable SysAdmin Blog articles
-These files are the intial drafts submitted to the #EnableSysAdmin blog.
+These files are the initial drafts submitted to the #EnableSysAdmin blog.
 That team provided copy edit and tech review resources prior to publication.
 
 ## License: 

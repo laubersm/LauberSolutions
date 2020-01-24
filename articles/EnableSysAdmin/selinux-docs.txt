@@ -1,0 +1,73 @@
+Accessing SElinux Policy Documentation 
+======================================
+Susan Lauber <sml@laubersolutions.com>
+v1.0, 2019-08
+
+There are many excellent man pages for the confined domains included with the SELinux policy. These man pages describe booleans and context types for each domain. They also include sample `semanage` commands for adding context mappings, changing booleans, and more. Unfortunately for the sysadmin getting started with SELinux configuration, these man pages are often not installed by default.
+
+The SELinux policy man pages are available from two locations. The upstream Reference Policy repo [links: https://github.com/SELinuxProject/refpolicy] has a handful of prebuilt man pages. The rest can be generated from the policy content with a tool found in the policycoreutils-devel package. 
+
+Install from a distribution package
+------------------------------------
+
+Some distributions have already generated the man pages and packaged them to make the documentation easy to add to the system. Fedora, CentOS, and Red Hat Enterprise Linux 8 all include a `selinux-policy-doc.noarch` package in the base repositories. This package is not installed by default but easy to add with a `yum` or `dnf` command:
+
+sudo yum install selinux-policy-doc.noarch
+
+Red Hat Enterprise Linux 7 has this package as well but it is in the "Optional" repo which is not enabled by default. Either enable the repo permanently with subscription manger:
+
+sudo subscription-manager repo --enable=rhel-7-server-optional-rpms
+
+or just add the repo temporarily during the installation:
+
+sudo yum --enablerepo=rhel-7-server-optional-rpms install selinux-policy-doc.noarch
+
+Now that the SELinux domain documentation is available, search for the relevant pages with:
+
+man -k _selinux
+
+Note: After installing the docs package you may also need to update the man page index cache before seeing the results from search:
+sudo mandb
+
+Generate man pages from the policy
+----------------------------------
+
+If the docs package is not available or if you only want to generate a man page for a specific domain, you can also build the man pages from the policy. 
+
+First install the devel packages and their dependencies:
+
+sudo yum install policycoreutils-devel 
+
+Then use the `sepolicy` command to generate a specific man page by specifying the domain type. This is the SElinux context type associated with the running process that is being contained. For example:
+
+sepolicy manpage -d httpd_t
+
+The resulting man page will be generated in the /tmp directory and can be viewed by name:
+
+man /tmp/httpd_selinux.8
+
+There are options on the `sepolicy manpage` command to override the output location (`--path`), generate an html version (`--web`), or generate all (`--all`) pages. To see these and other options use:
+
+man sepolicy-manpage
+
+As long as you have write privileges to the output path, a user can generate and view a man page. 
+
+Preview the magic of these man pages
+----------------------------------------
+
+Each man page starts with the expected NAME and DESCRIPTION fields of any man page.
+
+The SElinux domain man pages then include sections on ENTRYPOINTS and PROCESS TYPES. The entrypoints are the types assigned to the executable files which when, launched as daemons transition to the confined process types. Not all process types are daemons though, some may be interactive executables. 
+For example, sshd_exec_t is an entrypoint which transitions to the sshd_t process type. In addition to sshd_t, ssh_t and ssh_keygen_t and are also examples of process types.
+Process types are also known as domain types and are the types which can be placed into permissive mode with with `semanage` command.
+
+After any entrypoint and process type sections, the SELinux domain man page will have sections for any BOOLEANS, PORT TYPES, MANAGED FILES, and FILE CONTEXTS that apply to that domain. These sections define keywords and provide samples for modifications that can be made with the `semanage` command. Enabling a booleans allows a different rule set for different use cases. File and port context modifications allow a system to be configured to hold data in a non default location or run on a non default port.
+
+Each man page ends with a list of COMMANDS referenced in the man page and the traditional man page AUTHOR and SEE ALSO sections.
+
+As with any set of man pages, the more man pages you read, the easier it is to scan or speed read a new man page. The SELinux man pages for domain types all have a common layout.
+With the targeted policy, the httpd domain page is probably the longest since that domain has the most booleans and file types to describe. It was also one of the first domains confined in the history of the SELinux targeted policy. 
+
+Start with a domain that is familiar to you such as sshd, httpd, or ntpd. Then search for domains that are relevant to your environment. After installing the selinux-docs package, I have over 850 man pages to explore on my system!
+
+

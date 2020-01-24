@@ -1,0 +1,116 @@
+Four `semanage` Commands to Keep SELinux in Enforcing Mode
+==========================================================
+Susan Lauber <sml@laubersolutions.com>
+v1.0, 2019-08
+
+
+SELinux has assisted in preventing damage to systems from 0-day exploits for years. It is also useful for virtual machine isolation and required for container isolation. Yet it is still commonly disabled or placed in permissive mode.
+
+The SELinux targeted policy is designed to isolate various process domains and still allow interaction between services as needed. 
+Just a few commands are needed for an administrator to configure a system to use this policy with their customized applications, keeping SELinux in enforcing mode. 
+
+The `semanage` command is used to adjust file contexts, port contexts, and booleans.
+If there is still a conflict with a particular process, that domain can be placed into permissive mode until further investigation can be completed. This leaves the rest of the system protected in enforcing mode.
+
+The `semanage boolean` command
+------------------------------
+
+The targeted policy includes many booleans to enable and disable sets of allow rules. 
+The assumption is that services have different use cases and are run differently in each environment. The use of booleans allows different rule sets for different use cases. The web server in an academic environment may need to allow students to publish content from their home directories. A corporate public facing site may want to refuse access to any user home directories, limit SSI executables, and display data stored on an NFS share.
+
+The httpd_selinux man page describes the use of all the provided booleans for the httpd domain as well as sample setsebool commands to persistently enable each boolean. An alternate (and newer) way to see and change the booleans is with the `semanage boolean` command.
+
+The `-l` option will list all the booleans in the loaded policy. You can then filter for a keyword:
+
+sudo semanage boolean -l | grep httpd
+
+This output includes the name of the boolean, the current and persistent state of the boolean, and a brief description of the usage of the boolean.
+
+To change the boolean with `semanage` use:
+
+sudo semanage boolean -m --on httpd_ssi_exec 
+
+You can also list only the locally customized booleans by adding the `-C` option:
+
+sudo semanage boolean -l -C
+
+The man pages for each SELinux domain have descriptions of all the provided booleans for those domains. For more options when modifying SELinux booleans with `semanage`, see the `semanage-boolean` man page.
+
+
+The `semanage fcontext` command
+-------------------------------
+
+The targeted policy provides file context information for default locations and common alternate locations of application files including data, log, and runtime files. These context definitions are the "mappings" that the `restorecon` command uses to verify or change the context of files.
+
+The `semanage fcontext` command can be used to list and add file context definitions. The `-l` option will list all the contexts in the loaded policy. You can then filter for a keyword:
+
+sudo semanage fcontext -l | grep sshd
+
+This output includes the regular expression pattern for the target file names, the type of file, and the file context to assign to the matching filename.
+
+The related man page, in this case man `sshd_selinux`, includes a list of managed files and a description of each file context available for the domain. There are also sample commands to specify and apply alternate labeling.
+
+For example, if you wanted to store the sshd host keys in a separate subdirectory, you could run the following two commands:
+
+sudo semanage fcontext -a -t sshd_key_t '/etc/ssh/keys(/.*)?'
+sudo restorecon -r /etc/ssh/keys
+
+In this example, the regular expression will match the directory `/etc/ssh/keys` as well as any subdirectories and files found in the `/etc/ssh/keys` directory.
+
+Like with the booleans, you can view any locally customized file contexts by adding the `-C` option:
+
+sudo semanage fcontext -l -C
+
+For more options when modifying SELinux file contexts, see the `semanage-fcontext` man page.
+
+
+The `semanage port` command
+----------------------------
+
+In addition to file contexts, the targeted policy also defines port contexts. Like with the booleans and file contexts, the domain specific man pages list the defined types and may show the sample commands needed to run a service on a different port.
+
+View the port contexts with:
+sudo semanage port -l
+
+Add a definition with:
+sudo semanage port -a -t ssh_port_t -p tcp 42 
+
+When specifying the port, you must specify both the protocol and the port number. For more options when modifying SELinux port contexts, see the `semanage-port` man page.
+
+
+The `semanage permissive` command
+---------------------------------
+
+Instead of moving the entire system to permissive mode or worse, disabling SELinux completely, you can place a single domain into permissive mode. 
+A domain in permissive mode will allow all actions while still logging any would be denials. The other domains on the system will remain in enforcing mode which will both log and deny actions which are not not specifically allowed.
+
+The man pages for common domains list the SELinux types that can be placed into permissive mode. 
+
+To list any domains currently in permissive mode use:
+sudo semanage permissive -l
+
+To place a domain into permissive mode use:
+sudo semanage permissive -a 
+
+The `-d` option will delete a permissive domain thus reenabling enforcing mode for the domain. 
+For more options when placing domain into permissive mode, see the `semanage-permissive` man page.
+
+
+Bonus: Automate these Commands with Ansible Modules:
+----------------------------------------------------
+
+You can automate the `semanage` commands with the ansible modules and roles.
+
+- The ansible modules are `seboolean` and `seport` for booleans and ports respectively. 
+- You can automate the `semanage fcontext` command with the ansible `sefcontext` module. The `restorecon` command will still need to be run with a separate command module. See `ansible-doc sefcontext` for examples. 
+- The ansible `selinux_permissive` module can be used to place a domain into permissive mode. See `ansible-doc selinux_permissive` for examples.
+
+These modules are used by the roles provided by the `linux-system-roles` package in Fedora or `rhel-system-roles` package in Red Hat Enterprise Linux. The Red Hat package is available beginning with Red Hat Enterprise Linux 7.4 and can be found in the "Extras" repository.
+
+
+All of the `semanage` commands which add or modify the targeted policy configuration store information in *local files under the `/etc/selinux/targeted` directory tree. 
+When the SELinux and policy packages are updated, these local customization files are left in place and applied to the updated policy. 
+
+With just these four `semanage` commands, most systems can be configured to allow customized application to run with SELinux in enforcing mode.
+
+
