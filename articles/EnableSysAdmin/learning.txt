@@ -1,0 +1,52 @@
+Learning [#opensource] Tech.
+The "See one, do one, teach one" approach.
+
+As a technical instructor and specifically as an instructor of official certification training materials, I get asked all the time 
+"How do you learn all of this?"
+
+The simple answer is a lot of time, patience, experimentation, and practice. 
+Of course that is easier said than done. Everyone learns in different ways and those different methods come at a variety of costs. 
+
+In medical training they use the phrase "see one, do one, teach one". 
+In technical learning, I think of it as "read, try, and apply". 
+ 
+
+** "See One"
+I read a lot. Some documentation, release notes, and product announcements but mostly a lot of blog posts. Concepts are fine but specific how to articles are my favorite. Even a post on a topic I am already familiar with can provide a new option or idea for troubleshooting that can help me in my daily work.
+
+Not everyone likes to read or absorbs well from reading. There are also plenty of short videos or audio podcasts which can provide the same introductions to a topic new to you.
+
+The biggest challenges at this stage center around filtering the searches to find useful and correct instruction sets. I find new topics by following people and projects and companies on social media and with newsletters or RSS feeds. When I get the opportunity to attend a meet-up or conference I find new people to follow. With a specific problem, I experiment with searches to find information from multiple sources that I recognize and also check dates and versions for relevance. 
+
+
+** "Do one"
+Now it is time to get "hands on" (or voice activated) and provide some input to a system. 
+
+The core of this stage is replicating any steps provided in a article, tutorial, or training book. 
+Most of my learning has been related to my job and that job has given me the time and resources to learn new things. I have always had access to test equipment in the office or more recently as virtual machine hosted in a cloud service. For small tests I can use a virtual machine on my company laptop. 
+
+Do not just spin your wheels if you get stuck with the instructions. A different article might help but you can also phone a friend, ask a coworker, or ask questions in an online forum, mailing list, or chat room. For the Red Hat specific topics, check out the Red Hat Learning Community [link: https://learn.redhat.com/] and the Customer Portal Community [link: https://access.redhat.com/community]. Ask Fedora [link: https://ask.fedoraproject.org/] is a similar discussion board for the Fedora community. Fedora and CentOS also have mailing lists and Freenode chat rooms where the community members are willing to help a stranger learn new things and make new contacts and do many other open source communities.
+
+Once I can follow the published steps, I begin to explore. After learning about a new command, I might see what other options exist in a man page. After an introduction to Ansible playbooks which install a single package, I look at how I enable a private repository before installing my own packages. 
+I think about what is different in my test and production environments from the classroom or tutorial environment so that I can adapt (teach) what was shown to a different setting.
+
+** A side note on formal classes
+
+Another way of "seeing" and "doing" is in formal classes with lectures and labs. These might be self paced from EdX or Coursera or they might be instructor led in a classroom or online. Formal training can come from corporations or schools. Red Hat offers all of these. There are introductory, free, self paced courses at EdX as well as their corporate certification courses in self paced, video, virtual, and classroom varieties. Red Hat Academy takes a week long corporate course and adapts it to a High School or College semester. 
+Several other companies also provide open source technical training in all of these modes.
+
+I will point out that when I am spending a whole week and a lot of money for a corporate, instructor led course, I try to do some advanced work first. I use the table of contents of the course to narrow my reading list and I block some time on my calendar for some advanced reading. I also minimize any calendar conflicts for the training week itself. 
+Most corporate training is a flood of a lot of information in a short period of time.
+
+
+** "Teach one"
+In the original medical context, teaching meant showing or walking another student through the procedure. In technical learning, I think of this step as applying the knowledge to your own environment. 
+
+Being able to follow a tutorial or solve an issue with steps from an online forum or a support ticket is one thing. It helps to have an idea of what is being done to make sure it is the best option to try and to ensure that it works as desired. The next level of understanding is to be able to apply those tutorial steps to a slightly different environment. 
+Every production environment is a bit different and every corporation has slightly different procedures.
+
+For Example, there are plenty of tutorials and classroom exercises showing how to write a playbook that installs Apache and opens a firewalld service, then tests that the content is available from another host. Can I expand my playbook to enable a specific repo before installing the software? Can I add a required proxy server option to my yum module? Can I push out a directory of content instead of a single line index.html page? Can I test access to more complex content or test posting to an API? Find ways to apply the basics learned in the class or tutorial to other environments in your own lab spaces and ask to see how they are applied in production environments.
+
+When you propose your changes to other team members, that is teaching. When you document the changes for future administrators, that is teaching. If you really want to take the teaching step to the next level, set up a lunch and learn at your company, present your new skills at a local meetup, or write an article for Enable SysAdmin or OpenSource.com
+
+

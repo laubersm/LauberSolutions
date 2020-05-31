@@ -15,5 +15,7 @@ That team provided copy edit and tech review resources prior to publication.
 * https://www.redhat.com/sysadmin/who-signed-my-cert (Nov 18, 2019)
 * https://www.redhat.com/sysadmin/learn-new-technology (Jan 14, 2020)
 * https://www.redhat.com/sysadmin/rhcp-exam (Jan 24, 2019)
-
-
+* https://www.redhat.com/sysadmin/certificate-y2k20-bug (Feb 19, 2020)
+* https://www.redhat.com/sysadmin/ca-certificates-cli (Mar 3, 2020)
+* https://www.redhat.com/sysadmin/getting-started-gpg (May 19, 2020)
+* https://www.redhat.com/sysadmin/creating-gpg-keypairs (May 26, 2020)

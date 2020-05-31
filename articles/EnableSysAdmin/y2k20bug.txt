@@ -1,0 +1,37 @@
+Certificate Validity and a y2k20 bug
+
+What a 30 year plan and a software bug taught me about PKI validity date formats and the year 2050.
+
+One of the standard fields of an SSL certificate is the validity period. This field includes notBefore and notAfter dates which, according to RFC5280 section 4.1.2.5, [ link https://tools.ietf.org/html/rfc5280#section-4.1.2.5] indicates the interval "during which the CA warrants that it will maintain information about the status of the certificate"
+This is one of the fields that should be inspected [ link https://www.redhat.com/sysadmin/who-signed-my-cert] when accepting a new or unknown certificates. 
+
+When creating certificates, there are a number of theories on how long to set that period of validity. A short period reduces risk if a private key is compromised. The certificate expires soon after and can no longer be used. On the other hand, if the keys are well protected, then there is a need to regularly renew those short lived certificates. A common practice is for service certificates to be renewed annually or every couple of years and signing certificates to have a longer period such as 5 years or more. On the other side, the company signing a certificate is responsible for validating the identity of the entity of the purchaser meaning that most certificates signed by an external CA expire after one year.
+
+There are cases for much longer certificates. The RFC 5280 gives an example of a certificate for a device which is generated to include the device serial number and intended to be valid for the life of the device. The RFC specifies a specific value to use in this situation to effectively set no expiration by expiring in the year 9999. I don't plan on being around that long!
+
+I came across a situation last month where a program creates subscriptions for custom repositories with an expiration date of Now+30years. This program also generates subscription certificates for use by the clients and sets the notAfter date to match the subscription expiration date. The problem was that the clients were suddenly not able to see new repositories and as such could not install the packages contained in those repositories. Repositories and subscriptions created in 2019 were not a problem so what is special about the current year 2020 or the plus 30 years of 2050?
+
+According to RFC5280 [link: https://tools.ietf.org/html/rfc5280#section-4.1.2.5] the following must be true for the use of a PKI certificate validity.
+1. dates up to 2049 should be specified in UTCTime
+2. dates beginning in the year 2050 should be specified as GeneralizedTime
+3. all client consumers of the certificate should be able to evaluate both UTCTime and GeneralizedTime. 
+
+Why the year 2050?
+
+Lets look at how UTCTime is defined. The format is YYMMDDHHMMSS which has only a two character representation for year. Within the PKI standards, if YY is greater than or equal to 50, the year is interpreted as 19YY and if YY is less than 50, it is interpreted as 20YY. I was working in a support role in 1999, I absolutely remember the Y2K bug. Two character years cause all sorts of problems at the roll over time.
+
+GeneralizedTime uses a four character year, YYYYMMDDHHMMSS, thus eliminating the question of centuries. Additionally, according to RFC5280, certificate dates, UTC or Generalized must be expressed in Greenwich Mean Time and must include seconds. 
+
+In my situation clients are not able to see the repositories created after January 1, 2020. The notAfter date for the certificates was defined to be in the year 2050. So was the certificate not getting created with the correct format or was the client not reading the certificate correctly? The RFC requires that clients can evaluate either UTCTime or GeneralizedTime. 
+
+According to the bug report, it appears that the client needs to be updated to evaluate the date formats correctly and as a work around the server, at some time in the past, was configured to silently not issue any certificate if the expiration date is in the year 2050 or later. No certificate also results in no clients seeing the repository.
+
+Thankfully, a fix was available within 48 hours of the bugzilla report. A single package update to the server changes the new product subscriptions to be created with an expiration in the year 2049. Additionally a knowledgebase solution has a script to assist with changing the expiration for subscriptions already created with expiration in the year 2050. Eventually all clients will need an updated subscription manager utility that correctly handles certificates with both UTCTime and GeneralizedTime. I just had to get the updated package into all the isolated demo and classroom images.
+
+Time and date issues, specifically the specification of centuries, have disrupted computers for years. If you think that you will be retired by 2038 and not have to deal with with the Y2K38 bug [link https://opensource.com/article/19/1/year2038-problem-linux-kernel] ask yourself how many of your programs and tests use dates 10, 15, or 20 years in the future. 
+
+In the meantime, before you try to sync EPEL into your Satellite Server [link: https://www.redhat.com/sysadmin/epel-8-repo-satellite-6] be sure to update your Satellite server with the package from bug advisory RHBA-2020:0095 [link: https://access.redhat.com/errata/RHBA-2020:0095]
+
+
+
+

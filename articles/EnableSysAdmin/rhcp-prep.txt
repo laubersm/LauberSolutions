@@ -1,0 +1,56 @@
+So you have decided to become a Red Hat Certified Professional! How do you prepare?
+
+I have taken a lot of technical certification exams in the past 30 years. Some have been multiple choice, some have included a mix of multiple choice and simulator questions, but in the past 15 years, almost all have been hands on performance based exams like the Red Hat exams.
+
+There are two aspects to the preparation for any testing scenario:
+1. Learning the technical content
+2. Understanding the test taking process
+Both take time, patience, practice, and a budget for both time and money.
+
+The manager of the Red Hat Certification team wrote an article which outlines some great tips. These tips touch on both technical and process and I will not repeat them all but I will expand on a couple of them.
+[link: RRR's service blog post:
+https://servicesblog.redhat.com/2018/11/13/tips-for-passing-red-hat-certification-exams/]
+
+** Learning takes more than just a week long class.
+
+The "What you need to know" tab on any of the exam description pages also has useful information. From the RHCE exam description:
+"While attending Red Hat classes can be an important part of your preparation, attending class does not guarantee success on the exam. Previous experience, practice, and native aptitude are also important determinants of success."
+[link: "What you need to know" tab of https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-8]
+
+Not everyone learns information in the same way or at the same pace. The previous experience and practice recommendations are critical. An official training course is generally designed to provide the concepts and foundation for further applications. Explore how these objectives are applied in your company's test and production environments. 
+[link to learning article]
+
+** Learn the vendor's terminology
+I am a fan of using the official vendor materials for part of my certification preparations. This gives me a glimpse of that vendor's writing style, terminology, and recommended practices. 
+Multiple choice exams often require that you pick the least wrong answer from a list and one of those answers will often match the definition found in the vendors official training.
+Even with a hands on exam, being comfortable with the vendor recommended terminology will help you parse the presented task. Official certification training also provides a sample of the system environment and virtualization tools that might also be used in the exam environment. 
+
+Red Hat offers week long, intense classes, but they also have self paced and video course versions. Red Hat Academy also provides a few of the classes as semester courses in academic settings. The Red Hat product documentation, knowledge base, and blog sites can also help with vendor specific terminology and recommended procedures. 
+
+** Jump in and experience the environment.
+
+If you have never taken a performance based exam, just jump in and take one.
+
+Now that you have reviewed the technical content and researched all there is about the format, sign up and take the plunge. If you had to opportunity to attend official training, take advantage of the bundle to take the exam the same week. The exhaustion from the intense training may be an additional disadvantage but seeing the exam format while the technical content is fresh in your mind is balancing advantage.
+
+I have seen many experienced and talented administrators get flustered in their first hands on exam. For some it the stress of a different working environment. For some it the breadth of topics. They may focus on one or two subsystems in their daily work and take too much time looking up syntax for the other all the other topics covered. For some it about getting back to basics. They may have custom aliases and initial setup automated in scripts at the office and now they have to do a manual configuration. Do not fear failure. Learn from the experience and make adjustments.
+
+Do read the exam terms about required identification and what may and may not be wore during the exam. This includes head pieces. Special Accommodation Request (SAR) forms for medical, cultural, or religious reasons must be submitted at least two weeks prior to the exam. [link: https://www.redhat.com/en/about/red-hat-training-policies#terms]
+
+** Read everything
+
+Read through all the instructions and all the questions at the earliest time possible. This is true for academic exams, multiple choice quizzes, and any hands on testing. 
+
+Some computer based exams are adaptive and do not allow you to look ahead or back at other questions. Even some hands on exams might have you solve one problem before you can view the next. All of the exams will have general information at the beginning and for hands on exams this generally includes a list of all resources available during the exam. Where applicable, the general information will include information about package repositories, documentation, passwords, and tools for using the environment.
+
+Most hands on exams provide a list of several objectives that can all be reviewed before beginning. You may need to pick an order based on your knowledge of the product. You may have an option to choose what is easiest for you and do that first. You might find a tip or keyword in one objective that helps you remember something useful for another objective. Some tasks can be done in parallel but it may just be safer to do one step at a time. Skim though all the questions before you start then quickly plan your approach.
+
+** Learn with others and ask questions but honor the confidentiality.
+
+As mentioned above, there are a number of community forums, chat rooms, and mailing lists where you can ask questions. Be specific about the topic you are trying to understand and what you have already tried. You want to understand the technology and not just pass a test objective.
+
+Exams hold their value in part by testing your understanding not your memorization skills. Some exams have a pool of questions so you may not see the same exact question on a retake. All exams also have confidentially agreements. Honoring these agreements keeps the exam objective and fair for all candidates and maintains the value for those that hold the certification.
+
+Finally, block time on your calendar. Time for class. Time for research and practice. Time for the exam itself and ahead of any work defined deadlines to allow for a retry.
+
+

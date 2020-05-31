@@ -1,0 +1,118 @@
+Make CA certificates available to CLI tools.
+How to use the <code>ca-certificates</code> package to manage Certificate Authority certificates for command line utilities.
+
+All of the well known graphical browsers ship with a collection of known and trusted CA certificates so when you visit a site with a certificate signed by one of those CA certificates, the browser also trusts the site. Otherwise the browser steps through a series of warnings and options to add an exception after verifying the certificate. [link: https://www.redhat.com/sysadmin/who-signed-my-cert]
+There are also options to import additional CA certificates such as those documented for Firefox [link: https://wiki.mozilla.org/CA/AddRootToFirefox]
+
+CA certificates can be made available at the command line as well. A package included with many distributions, including Red Hat Enterprise Linux and Fedora is called <code>ca-certificates</code> and is self described as:
+<quote # source is $rpm -qi ca-certificates and the Description para>
+This package contains the set of CA certificates chosen by the
+Mozilla Foundation for use with the Internet PKI.
+</quote>
+
+This package includes the same well known CA certificates found in Firefox and which can be used by any CLI application which looks directly at the /etc/pki/ca-trust/extracted directory or which loads one of the PKCS#11 trust modules.
+
+Command line utilities such as curl and wget can use these CA certificates to validate server certificates. Many tools provided with Red Hat Enterprise Linux also use these certificates including interactions with Red Hat support (<code>redhat-support-tool</code>), OpenShift clusters (<code>oc</code>), and Satellite 6 servers (<code>hammer</code). Many other interactions with server API interfaces also use SSL/TLS and should validate the certificates offered.
+
+** Accessing an internal site signed by an internal CA
+
+On my system with <code>ca-certificates</code> installed, I can use curl to view or download URL content from a site using a certificate signed by a well known CA without error.
+
+<screen>
+$ curl https://access.redhat.com -o /tmp/sample
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  103k    0  103k    0     0   339k      0 --:--:-- --:--:-- --:--:--  337k
+</screen>
+
+If I try to access an internal site that has a self signed certificate or a certificate signed by a CA that is not included with the ca-certificates packages, I get a message about not trusting the certificate.
+
+<screen>
+$ curl https://somehost.internal-FQDN/ 
+curl: (60) SSL certificate problem: self signed certificate in certificate chain
+More details here: https://curl.haxx.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+</screen>
+
+Some documentation will encourage a simple insecure connection for these internal and trusted sites. Curl can connect insecure with the <code>-k</code> option:
+
+<screen>
+$ curl -k https://somehost.internal-FQDN/ 
+</screen>
+
+Or, if I have verified and downloaded my internal CA certificate, I can tell <code>curl</code> to verify the site with that certificate:
+
+<screen>
+$ curl --cacert /path/to/cert-file https://somehost.internal-FQDN/ 
+</screen>
+
+Other programs are similar. With the Origin and OpenShift client tool, <code>oc</code>, a connection to a default installed cluster may not recognize the generated, self signed CA certificate that the cluster uses to sign other internal certificates. This includes a connection to the CodeReady Containers:
+
+<screen>
+$ oc login -u developer -p developer https://api.crc.testing:6443
+The server uses a certificate signed by an unknown authority.
+You can bypass the certificate check, but any data you send to the server could be intercepted by others.
+Use insecure connections? (y/n): 
+</screen>
+
+If you have a copy of the certificates, specify the client certificate with the <code>--client-certificate=""</code> option or the CA certificate with the <code>--certificate-authority=""</code> option when using the <code>oc</code> command.
+
+Red Hat Satellite server and the CLI tool <code>hammer</code> works similarly but the CA certificate can be specified at the command line or in the <code>~/.hammer/cli_config.yml</code> file. The <code>hammer</code> command also has an option to import the Satellite CA certificate directly into the user's <code>.hammer</code> configuration directory.
+
+<screen>
+$ hammer --fetch-ca-cert https://satellite.example.com
+CA certificate for https://satellite.example.com was stored to
+...output omitted...
+</screen>
+
+This command only makes the certificate available for the single user and would have to be repeated for each user on the system. To make the certificate available to all users on a system, the output of the hammer command even suggests using <code>ca-certificates</code>.
+
+**Update ca-certificates to validate sites with an internal CA certificate
+
+Instead of manually specifying the CA certificate with each command, we can add our internal CA certificates to the CA trust provided by the <code>ca-certificates</code> package.
+
+This package provides a directory structure in <code>/etc/pki/</code> to manage the certificates and a command <code>update-ca-trust</code> to manage the "consolidated and dynamic configuration of CA certificates and associated trust".
+
+<screen>
+$ ls /etc/pki/ca-trust/
+ca-legacy.conf  extracted  README  source
+$ ls /etc/pki/ca-trust/source
+anchors  blacklist  ca-bundle.legacy.crt  README
+</screen>
+
+To add a certificate, download the certificate and place it in the <code>/etc/pki/ca-trust/source/anchors</code> directory then run the command <code>update-ca-trust</code>. You will need to be root for both of these tasks.
+
+<screen>
+$ sudo curl http://satellite.example.com/pub/katello-server-ca.crt -o /etc/pki/ca-trust/source/anchors/satellite-ca.crt
+$ sudo update-ca-trust
+</screen>
+
+Once the update command is issued, the certificate is made available through the <code>/etc/pki/ca-trust/extracted</code> tree.
+
+<screen>
+$ ls /etc/pki/ca-trust/extracted
+edk2  java  openssl  pem  README
+</screen>
+
+Applications which look to this directory to verify certificates can use any of the formats provided. The update command handled the copies, conversions, and consolidation for the different formats. The man page for update-ca-trust has a lot more information about the directory structure, formats, and ways that certificates are accessed but a quick way to list all of the certificate subjects in the bundle is with the following awk and openssl commands:
+
+<screen>
+$ awk -v cmd='openssl x509 -noout -subject' '/BEGIN/{close(cmd)};{print | cmd}' < /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+</screen>
+
+I added the CA certificate for my Satellite Server. Now I can use curl without any additional options to access the API.
+
+<screen>
+$ curl --request GET --user admin https://satellite.example.com/katello/api/organizations
+Enter host password for user 'admin':
+{
+  "total": 1,
+  "subtotal": 1,
+...output omitted...
+</screen>
+
+The same is true for <code>oc</code> commands, <code>hammer</code> commands, and many other command line applications. These utilities can use the certificates managed by ca-trust to validate connections.
+
