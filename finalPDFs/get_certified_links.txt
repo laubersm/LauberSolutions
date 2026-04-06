@@ -1,0 +1,84 @@
+Resources reviewed and used for Certification presentation.
+Durham Tech Community College, IT Tech Talk April 7, 2026
+
+
+
+Reports:
+
+(Global Knowledge 2024) Skillsoft’s It Skills and Salary
+https://www.globalknowledge.com/us-en/content/salary-report/it-skills-and-salary-report/
+
+(PearsonVue 2025) Value of IT Certification Candidate Report 
+https://go.pearsonvue.com/voc
+
+(SANS 2025): https://www.sans.org/white-papers/idc-sans-proven-impact-of-cybersecurity-training
+
+(CompTIA 2014): https://tieronecareers.com/Portals/24/Downloads/impact-of-comptia-certifications-on-performance.pdf
+
+
+DOD 8140.03 references:
+
+https://dodcio.defense.gov/Portals/0/Documents/Library/DoDM-8140-03.pdf 
+
+https://dl.dod.cyber.mil/wp-content/uploads/8140/pdf/unclass-dod8570_ia_program_transition_dod8140_cwp.pdf
+
+Cert to roles mappings:
+
+Cisco: https://www.cisco.com/site/us/en/learn/training-certifications/training/dod-8140.html
+
+CompTIA: https://www.comptia.org/en-us/blog/what-8140-means-for-companies-working-with-dod/ 
+
+All ISC2 certs (not mapped but has nice list of roles):
+https://www.isc2.org/training/us-government#Cybersecurity%20Readiness%20Training%20and%20Certification%20for%20You 
+
+GIAC certs with SANS training: (more advanced roles, lists under role categories at bottom, not direct map) 
+https://www.giac.org/workforce-development/dodd-8140/ 
+
+
+
+
+Performance-based Questions/Testing styles:
+
+Microsoft: https://learn.microsoft.com/en-us/credentials/certifications/posts/performance-testing-is-coming-to-microsoft-exams
+
+GIAC: https://www.giac.org/blog/performance-based-testing-enhances-value-of-cyber-security-certifications/
+
+CompTIA: https://www.giac.org/blog/performance-based-testing-enhances-value-of-cyber-security-certifications/
+
+https://www.comptia.org/en-us/blog/what-is-a-performance-based-question/
+
+Red Hat: 100% hands on. Video tour: https://www.youtube.com/watch?v=Me6Y12-sux8&t=133s 
+
+OffSec Certified Professional (OSCP)  - for pen testers and ethical hackers. 24 hours live labs
+
+
+Preparations:
+
+https://www.globalknowledge.com/us-en/resources/resource-library/articles/how-to-select-the-right-certification-for-you/
+
+Azure certifications: https://azure.microsoft.com/en-us/resources/training-and-certifications#tab2a35fc129-bcae-41e0-b7f9-448d297f83e9
+
+AWS certifications: https://aws.amazon.com/certification/
+Red Hat exam tour: https://www.youtube.com/watch?v=Me6Y12-sux8&t=133s
+
+Cisco certifications: https://www.cisco.com/site/us/en/learn/training-certifications/certifications/index.html
+
+CompTIA certifications: https://www.comptia.org/en-us/certifications/
+
+Red Hat training and certifications: https://www.redhat.com/en/services/training-and-certification
+
+Study resources:
+
+Cisco simulators and emulators reviewed ((2024):
+https://www.cbtnuggets.com/blog/career/career-progression/5-best-network-simulators-for-cisco-exams-ccna-ccnp-and-ccie
+
+CompTIA Security+: 
+(10 questions): https://www.comptia.org/en-us/certifications/security/practice-questions/
+Exam Cram (2012?): https://ptgmedia.pearsoncmg.com/images/9780789748287/samplepages/0789748282.pdf
+ExamCompass: examcompass.com/comptia/security-plus-certification/free-security-plus-practice-tests
+
+Red Hat exam experience tour: https://www.youtube.com/watch?v=Me6Y12-sux8&t=133s
+Red Hat remote exam requirements: https://access.redhat.com/sites/hub/files/2026-04/remote_exam_0.pdf 
+
+
+
